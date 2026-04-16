@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* fiindin Design System - Premium Modern Theme */
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 173 80% 28%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 25% 93%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 20% 45%;
+
+    --accent: 210 25% 93%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 20% 90%;
+    --input: 214 20% 90%;
+    --ring: 173 80% 28%;
+
+    --radius: 0.75rem;
+
+    /* fiindin Section Colors - Refined Palette */
+    --home: 173 80% 28%;
+    --home-foreground: 0 0% 100%;
+    
+    --medical: 221 83% 53%;
+    --medical-foreground: 0 0% 100%;
+    
+    --jobs: 152 76% 36%;
+    --jobs-foreground: 0 0% 100%;
+    
+    --education: 271 81% 56%;
+    --education-foreground: 0 0% 100%;
+    
+    --rent: 24 95% 53%;
+    --rent-foreground: 0 0% 100%;
+    
+    --sales: 350 89% 60%;
+    --sales-foreground: 0 0% 100%;
+    
+    --profile: 243 75% 59%;
+    --profile-foreground: 0 0% 100%;
+    
+    --saved: 45 93% 47%;
+    --saved-foreground: 222 47% 11%;
+    
+    --transport: 168 80% 36%;
+    --transport-foreground: 0 0% 100%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 173 80% 28%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 20% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 20% 92%;
+    --sidebar-ring: 173 80% 28%;
+  }
+
+  .dark {
+    --background: 222 47% 7%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 173 80% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 222 30% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 30% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 222 30% 18%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 173 80% 40%;
+
+    /* fiindin Section Colors - Dark mode */
+    --home: 173 75% 35%;
+    --medical: 221 80% 60%;
+    --jobs: 152 70% 45%;
+    --education: 271 75% 62%;
+    --rent: 24 90% 58%;
+    --sales: 350 85% 65%;
+    --profile: 243 70% 65%;
+    --saved: 45 90% 55%;
+    --transport: 168 75% 42%;
+
+    --sidebar-background: 222 47% 10%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 173 80% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 30% 18%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 222 30% 18%;
+    --sidebar-ring: 173 80% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Premium UI Components */
+@layer components {
+  .card-elevated {
+    @apply bg-card rounded-2xl border border-border/60 shadow-sm hover:shadow-md hover:border-border transition-all duration-200;
+  }
+  
+  .card-interactive {
+    @apply bg-card rounded-2xl border border-border/60 shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-200 cursor-pointer;
+  }
+  
+  .section-header {
+    @apply rounded-2xl p-6 relative overflow-hidden;
+  }
+  
+  .section-header::before {
+    content: '';
+    @apply absolute -top-20 -right-20 w-48 h-48 rounded-full blur-3xl opacity-30;
+    background: radial-gradient(circle, currentColor 0%, transparent 70%);
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-home via-medical to-education bg-clip-text text-transparent;
+  }
+  
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-border/40 rounded-2xl;
+  }
+  
+  .icon-container {
+    @apply p-3 rounded-xl transition-colors duration-200;
+  }
+  
+  .stat-card {
+    @apply bg-card rounded-2xl border border-border/60 p-6 text-center hover:shadow-md transition-shadow duration-200;
+  }
+}
+
+/* Subtle hover effects */
+.hover-lift {
+  @apply transition-transform duration-200 hover:-translate-y-0.5;
+}
+
+.hover-glow {
+  @apply transition-shadow duration-200;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 4px 20px -4px hsl(var(--primary) / 0.2);
+}
+
+/* Premium button styles */
+.btn-primary-glow {
+  @apply relative overflow-hidden;
+}
+
+.btn-primary-glow::after {
+  content: '';
+  @apply absolute inset-0 opacity-0 transition-opacity duration-200;
+  background: linear-gradient(to right, transparent, hsl(var(--primary-foreground) / 0.1), transparent);
+}
+
+.btn-primary-glow:hover::after {
+  @apply opacity-100;
+}
+
+/* Section-specific gradients */
+.section-gradient-medical {
+  background: linear-gradient(135deg, hsl(var(--medical) / 0.08) 0%, hsl(var(--medical) / 0.02) 100%);
+}
+
+.section-gradient-jobs {
+  background: linear-gradient(135deg, hsl(var(--jobs) / 0.08) 0%, hsl(var(--jobs) / 0.02) 100%);
+}
+
+.section-gradient-education {
+  background: linear-gradient(135deg, hsl(var(--education) / 0.08) 0%, hsl(var(--education) / 0.02) 100%);
+}
+
+.section-gradient-rent {
+  background: linear-gradient(135deg, hsl(var(--rent) / 0.08) 0%, hsl(var(--rent) / 0.02) 100%);
+}
+
+.section-gradient-sales {
+  background: linear-gradient(135deg, hsl(var(--sales) / 0.08) 0%, hsl(var(--sales) / 0.02) 100%);
+}
+
+.section-gradient-transport {
+  background: linear-gradient(135deg, hsl(var(--transport) / 0.08) 0%, hsl(var(--transport) / 0.02) 100%);
+}
+
+/* Premium shadows */
+.shadow-soft {
+  box-shadow: 0 2px 8px -2px hsl(var(--foreground) / 0.08), 0 4px 16px -4px hsl(var(--foreground) / 0.05);
+}
+
+.shadow-premium {
+  box-shadow: 0 4px 12px -2px hsl(var(--foreground) / 0.08), 0 8px 24px -8px hsl(var(--foreground) / 0.1);
+}
